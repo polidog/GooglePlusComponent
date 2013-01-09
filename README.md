@@ -28,10 +28,6 @@ php5.3以上
 				'controller' => 'auth', 
 				'action' => 'login'
 			),
-			'loginRedirect' => array(
-				'controller' => 'pages',
-				'action' => 'index'
-			),
 		),
 		'GooglePlus' => array(
 			'clientId' => 'きー',
@@ -46,4 +42,8 @@ php5.3以上
 	);
 	
 もうあとはいたって、普通にcakeのAuthの認証になります。  
-もちろん$this->Auth->user();とかやったら普通のgoogle plusのユーザーの情報が取得できますよー
+もちろん$this->Auth->user();とかやったら普通のgoogle plusのユーザーの情報が取得できますよー。
+
+
+ちなみにAuthComponentのほうのloginRedirectは効かないので、GooglePlusのほうのauth callbackにログイン後にリダイレクトしたいページを指定してください。  
+GooglePlusのほうのauth callbackのURLはgoogle plus側で指定するコールバックのURLとあわせるようにしてください。
